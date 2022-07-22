@@ -1,10 +1,10 @@
-const fragmentShader = `#version 300 es
+#version 300 es
 
 #ifdef GL_ES
 precision mediump float;
 #endif
 
-#define NB 127.
+#define NB 91.
 #define MAX_ACC 3.
 #define MAX_VEL.5
 #define RESIST.5
@@ -12,11 +12,11 @@ precision mediump float;
 uniform vec2 u_resolution;
 uniform vec2 u_mouse;
 uniform float u_time;
-uniform sampler2D u_tex0; // img/tiece.png
+uniform sampler2D u_tex0;// data/pro.png
 uniform sampler2D u_buffer0;
 
 vec2 hash(float n){return fract(sin(vec2(n,n*6.))*43758.5);}
-vec4 Fish(float i) { return texelFetch(u_buffer0, ivec2(i,0),0);}
+vec4 Fish(float i){return texelFetch(u_buffer0,ivec2(i,0),0);}
 
 #ifdef BUFFER_0
 
@@ -30,7 +30,7 @@ void main(){
     float d,a,v,dt=.03,id=floor(uv.x);
     
     // = Initialization ===================================
-    if(u_time<.5)fc=vec4(.1+.8*hash(id)*res,0,0);
+    if(u_time<1.)fc=vec4(.1+.8*hash(id)*res,0,0);
     
     // = Animation step ===================================
     else{
@@ -38,7 +38,7 @@ void main(){
         
         // - Sum Forces -----------------------------
         // Borders action
-        sumF=.8*(1./abs(fish.xy) - 1./abs(res-fish.xy));  
+        sumF=(vec2(1.,1.)/abs(fish.xy)-(1.+.5*sin(u_time))/abs(res-fish.xy));
         
         // Mouse action
         w=fish.xy-u_mouse.xy/u_resolution.y;// Repulsive force from mouse position
@@ -47,7 +47,7 @@ void main(){
         // Calculate repulsion force with other fishs
         for(float i=0.;i<NB;i++)
         if(i!=id){// only other fishs
-            d=1.8*length(w=fish.xy-Fish(i).xy);
+            d=2.*length(w=fish.xy-Fish(i).xy);
             sumF-=d>0.?w*(6.3+log(d*d*.02))/exp(d*d*2.4)/d// attractive/repulsive force from otehrs
             :.01*hash(id);// if same pos : small ramdom force
         }
@@ -74,68 +74,43 @@ void main(){
 
 // Distance to a fish
 
-float sdHexagon( vec2 p, float s, float r ) 
+float sdHexagon(vec2 p,float s,float r)
 {
-    const vec3 k = vec3(-0.866025404,0.5,0.577350269);
-    p = abs(p);
-    p -= 2.0*min(dot(k.xy,p),0.0)*k.xy;
-    p -= vec2(clamp(p.x, -k.z*s, k.z*s), s);
-    return length(p)*sign(p.y) - r;
+    const vec3 k=vec3(-.866025404,.5,.577350269);
+    p=abs(p);
+    p-=2.*min(dot(k.xy,p),0.)*k.xy;
+    p-=vec2(clamp(p.x,-k.z*s,k.z*s),s);
+    return length(p)*sign(p.y)-r;
 }
 
-vec4 drawPixel(float i, vec2 p, vec2 uv) {
-    float d = length(p-uv);
-    if (d<.1){
+vec4 drawPixel(float i,vec2 p,vec2 uv){
+    float d=length(p-uv);
+    if(d<.1){
         return vec4(1.);
     }
-    else {
-        return vec4(0., 0., 0., 1.);
+    else{
+        return vec4(0.,0.,0.,1.);
     }
 }
 
 out vec4 cout;
 
 void main(){
-	// float d = sdHexagon(p,.3,.1);
-    vec2 uv = gl_FragCoord.xy;
-    vec2 p = 1./u_resolution.xy;
-    float d, m = 1e6;
-    vec4 c, ct, fish;
-    vec2 bary = vec2(0.);
-
-    for(float i=0.; i<NB; i++) {     
-        fish = texelFetch(u_buffer0,ivec2(i,0),0); // (xy = position, zw = velocity) 
-        bary += fish.xy-uv.xy*p.y;
-        m = min(m, d = sdHexagon(fish.xy-uv.xy*p.y,.01,0.)); // Draw fish according to its direction
+    // float d = sdHexagon(p,.3,.1);
+    vec2 uv=gl_FragCoord.xy;
+    vec2 p=1./u_resolution.xy;
+    float d,m=1e6;
+    vec4 c,ct,fish;
+    vec2 bary=vec2(0.);
+    
+    for(float i=0.;i<NB;i++){
+        fish=texelFetch(u_buffer0,ivec2(i,0),0);// (xy = position, zw = velocity)
+        bary+=fish.xy;
+        m=min(m,d=sdHexagon(fish.xy-uv.xy*p.y,.01,0.));// Draw fish according to its direction
         // Background color sum based on fish velocity (blue => red) + Halo - simple version: c*smoothstep(.5,0.,d);
-        ct += mix(vec4(39,174,96,255)/255., vec4(245,102,146,255)/255., length(fish.zw)/MAX_VEL)*(2./(1.+3e3*d*d*d) + .5/(1.+30.*d*d)); 
+        ct+=mix(vec4(0,0,1,1),vec4(1,0,0,1),length(fish.zw)/MAX_VEL)*(2./(1.+3e3*d*d*d)+.5/(1.+30.*d*d));
     }
     // Mix fish color (white) and Halo
-    bary = bary/NB;
-    cout = mix(texture(u_tex0,(uv/u_resolution.xy-bary)),.5*sqrt(ct/NB), smoothstep(0.,p.y*1.2, m));
+    cout=mix(vec4(1.),.5*sqrt(ct/NB),smoothstep(0.,p.y*1.2,m));
 }
 #endif
-`;
-
-(function () {
-    document.querySelector(".theme-btn").addEventListener("click", () => {
-        document.body.classList.toggle("light-mode");
-    });
-})();
-
-
-var scene = document.getElementById("scene");
-var canvas = document.createElement("canvas")
-scene.appendChild(canvas)
-var options = {
-    backgroundColor: 'rgba(0.0, 0.0, 0.0, 0.0)',
-    alpha: true,
-    antialias: false,
-    premultipliedAlpha: false,
-    preserveDrawingBuffer: false,
-    mode: "flat",
-    extensions: ["OES_standard_derivatives"],
-    doubleSided: false,
-}
-var glsl = new glsl.Canvas(canvas, options)
-glsl.load(fragmentShader)

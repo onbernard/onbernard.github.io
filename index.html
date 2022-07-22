@@ -6,362 +6,322 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="shortcut icon" type="image/x-icon" href="img/Briefcase_32.png" />
-    <title>Onésime BERNARD</title>
     <link rel="stylesheet" href="styles/styles.css">
+    <script type="text/javascript" src="https://unpkg.com/glsl-canvas-js/dist/umd/glsl-canvas.min.js"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
-        integrity="sha512-1ycn6IcaQQ40/MKBW2W4Rhis/DbILU74C1vSrLJxCq57o941Ym01SwNsOMqvEBFlcgUa6xLiPY/NS5R+E6ztJQ=="
-        crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap"
         rel="stylesheet">
+    <script type="text/javascript"
+        src="https://rawgit.com/patriciogonzalezvivo/glslCanvas/master/dist/GlslCanvas.js"></script>
+    <script src="https://kit.fontawesome.com/76d7f17d8d.js" crossorigin="anonymous"></script>
+    <title>Onésime BERNARD</title>
 </head>
 
 <body class="main-content">
-    <header class="container header active" id="home">
+    <header class="container header" id="home">
         <div class="header-content">
-            <div class="left-header">
-                <div class="h-shape"></div>
-                <div class="image">
-                    <img src="img/pro.png" alt="">
-                </div>
+            <h1 class="name">
+                Hi, I am <span>Onésime BERNARD.</span>
+            </h1>
+            <p>
+                Welcome to my portfolio.
+            </p>
+            <div id="scene">
             </div>
-            <div class="right-header">
-                <h1 class="name">
-                    Hi, I'm <span>Onésime BERNARD.</span>
-                    A Comeptent Developer.
-                </h1>
-                <p>
-                    I do things and I know stuffs. I can make coffee and got some sick dance moves. Sometimes, I
-                    program. Computers are my passion but not as much as the taste of the new McDonald's Crunch Wrap
-                    Supreme™. I am fluent in over six million forms of futurama quotes. None ever got me laid. Hire me.
-                </p>
-                <div class="btn-con">
-                    <a href="/cv_OBERNARD.pdf" class="main-btn" , target="_blank">
-                        <span class="btn-text">Download CV</span>
-                        <span class="btn-icon"><i class="fas fa-download"></i></span>
-                    </a>
-                </div>
-            </div>
+        </div>
+        </div>
         </div>
     </header>
     <main>
-        <section class="container about" id="about">
+        <div class="container about" id="about">
             <div class="main-title">
-                <h2>About <span>me</span><span class="bg-text">my stats</span></h2>
+                <h2>About <span>me</span></h2>
             </div>
             <div class="about-container">
-                <div class="left-about">
-                    <h4>Big heart, bigger toolbox</h4>
-                    <p>
-                        I studied both computer science and mathematics for three years at the University Paul Sabatier
-                        of Toulouse. I also have some knowledge of college physics. <br /> <br /> I like to program on
-                        my spare time and completed a number of projects in a variety of languages, for school or for
-                        fun.
-                    </p>
-                    <div class="btn-con">
-                        <a href="cv_OBERNARD.pdf" class="main-btn" download>
-                            <span class="btn-text">Download CV</span>
-                            <span class="btn-icon"><i class="fas fa-download"></i></span>
+                <p>
+                    I am a computer science and mathematics students at Université Paul Sabatier de Toulouse. I
+                    previously studied engineering at the École Polytechnique de Louvain in Belgium. I am fascinated by
+                    everything science and love to learn new stuff. My interest lies primarily with computer simulations
+                    and how to solve real-world problem with procedural solutions. To that end, i like to tinker with
+                    artificial intelligence or more
+                    conventional algorithms.
+                </p>
+                <p>
+                    When I am not breaking a computer, you can find me on my bike 🚴, watching Formula 1 🏎️ or playing
+                    video games 🎮 with friends. I can be a massive nerd but i learned to live with it.
+                </p>
+            </div>
+        </div>
+
+        <div class="container skill" id="skill">
+            <div class="main-title">
+                <h2>My <span>skill</span>set</h2>
+            </div>
+            <h4 class="about-title">Programming</h4>
+            <div class="skill-items">
+                <div class="skill-item">
+                    <div class="left-item">
+                        <img src="logos/c.svg">
+                        <img src="logos/cpp.svg">
+                        <img src="logos/csharp.svg">
+                    </div>
+                    <div class="right-item">
+                        Intermediate
+                    </div>
+                    <div class="description">
+                        C is the first programming language i learned for fun back in middle school. It was the
+                        subject of a handful of university classes where i used a variety of the language features such
+                        as openMP parallelism
+                        and barebone POSIX threads.
+                    </div>
+                </div>
+                <div class="skill-item">
+                    <div class="left-item">
+                        <img src="logos/python.svg">
+                    </div>
+                    <div class="right-item">
+                        Intermediate
+                    </div>
+                    <div class="description">
+                        If every problem is a nail, then python is a hammer. Its simplicity and versatility makes it my
+                        go-to language when prototyping, setting up a pipeline, etc.
+                    </div>
+                </div>
+                <div class="skill-item">
+                    <div class="left-item">
+                        <img src="logos/r.svg">
+                        <img src="logos/matlab.png">
+                    </div>
+                    <div class="right-item">
+                        Intermediate
+                    </div>
+                    <div class="description">
+                        I wrote an R library focused on bandit algorithms during the course of an internship in my
+                        university. I
+                        have less experience with Matlab, having only used it during my engineering years.
+                    </div>
+                </div>
+                <div class="skill-item">
+                    <div class="left-item">
+                        <img src="logos/opengl.svg">
+                        <img src="logos/webgl.svg">
+                    </div>
+                    <div class="right-item">
+                        Beginner
+                    </div>
+                    <div class="description">
+                        Big datasets and my struggling computer got me to learn opengl. I can spend hours rambling about
+                        its... quirks.
+                    </div>
+                </div>
+                <div class="skill-item">
+                    <div class="left-item">
+                        <img src="logos/java.svg">
+                    </div>
+                    <div class="right-item">
+                        Beginner
+                    </div>
+                    <div class="description">
+                        Java and Object Oriented Programming in general was the subject of a couple of university
+                        courses. Not much more though.
+                    </div>
+                </div>
+                <div class="skill-item">
+                    <div class="left-item">
+                        <img src="logos/ocaml.svg">
+                    </div>
+                    <div class="right-item">
+                        Beginner
+                    </div>
+                    <div class="description">
+                        I learned OCaml and functional programming during a couple of university courses. I also had the
+                        opportunity to learn Oz a few years back.
+                    </div>
+                </div>
+                <div class="skill-item">
+                    <div class="left-item">
+                        <img src="logos/css.svg">
+                        <img src="logos/js.svg">
+                        <img src="logos/html.svg">
+                    </div>
+                    <div class="right-item">
+                        Beginner
+                    </div>
+                    <div class="description">
+                        This website.
+                    </div>
+                </div>
+                <div class="skill-item">
+                    <div class="left-item">
+                        <img src="logos/ue.svg">
+                        <img src="logos/unity.svg">
+                    </div>
+                    <div class="right-item">
+                        Beginner
+                    </div>
+                    <div class="description">
+                        A school project led me to experiment with game engines, especially with UE5 and its
+                        ability to manipulate C++ code with Blueprints.
+                    </div>
+                </div>
+            </div>
+            <h4 class="about-title">Systems & Databases</h4>
+            <div class="skill-items">
+                <div class="skill-item">
+                    <div class="left-item">
+                        <img src="logos/tux.svg">
+                        <img src="logos/bash.svg">
+                    </div>
+                    <div class="right-item">
+                        Intermediate
+                    </div>
+                    <div class="description">
+                        Most of my tools runs on Linux and most of my schooling focused on it so i have become very
+                        familiar with the system.
+                    </div>
+                </div>
+                <div class="skill-item">
+                    <div class="left-item">
+                        <img src="logos/oraclesql.svg">
+                        <img src="logos/mysqlL.svg">
+                    </div>
+                    <div class="right-item">
+                        Beginner
+                    </div>
+                    <div class="description">
+                        SQL was the subject of a couple of university courses. As an introduction mostly.
+                    </div>
+                </div>
+            </div>
+            <h4 class="about-title">Softwares & Content Creation</h4>
+            <div class="skill-items">
+                <div class="skill-item">
+                    <div class="left-item">
+                        <img src="logos/latex.svg">
+                    </div>
+                    <div class="right-item">
+                        Intermediate
+                    </div>
+                    <div class="description">
+                        I started taking all of my lectures notes on LaTeX a few years ago and i have gotten quite
+                        proficient in it, even writing some custom scripts.
+                    </div>
+                </div>
+                <div class="skill-item">
+                    <div class="left-item">
+                        <img src="logos/pwp.svg">
+                    </div>
+                    <div class="right-item">
+                        Intermediate
+                    </div>
+                    <div class="description">
+                        I am a powerpoint master and i am extremely salty about the
+                        online only version for student. Give me back my desktop app !
+                    </div>
+                </div>
+                <div class="skill-item">
+                    <div class="left-item">
+                        <img src="logos/blender_solo.svg">
+                        <img src="logos/gimp.svg">
+                    </div>
+                    <div class="right-item">
+                        Beginner
+                    </div>
+                    <div class="description">
+                        I fire these up from time to time whenever i need to get creative. I wrote an addon for blender,
+                        ask me about it.
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="container contact" id="contact">
+            <div class="main-title">
+                <h2>Contact <span>me</span></h2>
+            </div>
+            <div class="contact-content-con">
+                <p>
+                    Contact me using these and I will respond as fast as possible.
+                </p>
+                <div class="contact-info">
+                    <div class="contact-item">
+                        <div class="icon">
+                            <i class="fas fa-envelope"></i>
+                            <span>Email</span>
+                        </div>
+                        <p>
+                            <a href="mailto:bernard.onesime@gmail.com"><span> bernard.onesime@gmail.com</span></a>
+                        </p>
+                    </div>
+                    <div class="contact-item">
+                        <div class="icon">
+                            <i class="fas fa-phone"></i>
+                            <span>Mobile #1</span>
+                        </div>
+                        <p>
+                            <span> +32 4 91 52 15 06</span>
+                        </p>
+                    </div>
+                    <div class="contact-item">
+                        <div class="icon">
+                            <i class="fas fa-phone"></i>
+                            <span>Mobile #2</span>
+                        </div>
+                        <p>
+                            <span> +33 6 95 59 11 71</span>
+                        </p>
+                    </div>
+                    <div class="contact-item">
+                        <div class="icon">
+                            <i class="fa-solid fa-language"></i>
+                            <span>Languages</span>
+                        </div>
+                        <p>
+                            <span>French 🇫🇷, English 🇬🇧</span>
+                        </p>
+                    </div>
+                </div>
+                <div class="contact-icons">
+                    <div class="contact-icon">
+                        <a href="https://twitter.com/emiseno" target="_blank">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                        <a href="https://github.com/onbernard" target="_blank">
+                            <i class="fab fa-github"></i>
                         </a>
                     </div>
                 </div>
-                <div class="right-about">
-                    <div class="about-item">
-                        <div class="abt-text">
-                            <p class="large-text">6+</p>
-                            <p class="small-text">Programming Languages <br /> </p>
-                        </div>
-                    </div>
-                    <div class="about-item">
-                        <div class="abt-text">
-                            <p class="large-text">3+</p>
-                            <p class="small-text">Projects <br /> Published on Github</p>
-                        </div>
-                    </div>
-                </div>
             </div>
-            <div class="about-stats">
-                <h4 class="stat-title">My Skills</h4>
-                <div class="progress-bars">
-
-                    <div class="progress-bar">
-                        <p class="prog-title">Python</p>
-                        <div class="progress-con">
-                            <p class="prog-text">70%</p>
-                            <div class="progress">
-                                <span class="python"></span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="progress-bar">
-                        <p class="prog-title">C/C++</p>
-                        <div class="progress-con">
-                            <p class="prog-text">75%</p>
-                            <div class="progress">
-                                <span class="react"></span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="progress-bar">
-                        <p class="prog-title">C#</p>
-                        <div class="progress-con">
-                            <p class="prog-text">75%</p>
-                            <div class="progress">
-                                <span class="react"></span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="progress-bar">
-                        <p class="prog-title">html</p>
-                        <div class="progress-con">
-                            <p class="prog-text">80%</p>
-                            <div class="progress">
-                                <span class="html"></span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="progress-bar">
-                        <p class="prog-title">css</p>
-                        <div class="progress-con">
-                            <p class="prog-text">95%</p>
-                            <div class="progress">
-                                <span class="css"></span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="progress-bar">
-                        <p class="prog-title">javascript</p>
-                        <div class="progress-con">
-                            <p class="prog-text">75%</p>
-                            <div class="progress">
-                                <span class="js"></span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="progress-bar">
-                        <p class="prog-title">R</p>
-                        <div class="progress-con">
-                            <p class="prog-text">87%</p>
-                            <div class="progress">
-                                <span class="node"></span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="progress-bar">
-                        <p class="prog-title">OCaml</p>
-                        <div class="progress-con">
-                            <p class="prog-text">75%</p>
-                            <div class="progress">
-                                <span class="react"></span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="progress-bar">
-                        <p class="prog-title">JAVA</p>
-                        <div class="progress-con">
-                            <p class="prog-text">75%</p>
-                            <div class="progress">
-                                <span class="react"></span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="progress-bar">
-                        <p class="prog-title">LaTeX</p>
-                        <div class="progress-con">
-                            <p class="prog-text">75%</p>
-                            <div class="progress">
-                                <span class="react"></span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <h4 class="stat-title">Schooling</h4>
-            <div class="timeline">
-                <div class="timeline-item">
-                    <div class="tl-icon">
-                        <i class="fas fa-briefcase"></i>
-                    </div>
-                    <p class="tl-duration">2018 - present</p>
-                    <h5>Licence de mathematiques<span> - Université de Toulouse</span></h5>
-                    <p>
-                        WIP
-                    </p>
-                </div>
-                <div class="timeline-item">
-                    <div class="tl-icon">
-                        <i class="fas fa-briefcase"></i>
-                    </div>
-                    <p class="tl-duration">2018 - present</p>
-                    <h5>Licence d'informatique<span> - Université de Toulouse</span></h5>
-                    <p>
-                        WIP
-                    </p>
-                </div>
-            </div>
-        </section>
-        <section class="container" id="portfolio">
-            <div class="main-title">
-                <h2>My <span>Portfolio</span><span class="bg-text">My Work</span></h2>
-            </div>
-            <p class="port-text">
-                Here is some of my work that I've done in various programming languages.
-            </p>
-            <div class="portfolios">
-                <div class="portfolio-item">
-                    <div class="image">
-                        <img src="img/earth.jpg" alt="">
-                    </div>
-                    <div class="hover-items">
-                        <h3>MeshEarth</h3>
-                        <p class="port-text">
-                            Lorem
-                        </p>
-                        <div class="icons">
-                            <a href="https://github.com/onbernard/MeshEarth" class="icon">
-                                <i class="fab fa-github"></i>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-        <section class="container" id="blogs">
-            <div class="blogs-content">
-                <div class="main-title">
-                    <h2>My <span>Blogs</span><span class="bg-text">My Blogs</span></h2>
-                </div>
-                <div class="blogs">
-                    <div class="blog">
-                        <img src="img/port1.jpg" alt="">
-                        <div class="blog-text">
-                            <h4>
-                                WIP
-                            </h4>
-                            <p>
-                                More WIP
-                            </p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-        <section class="container contact" id="contact">
-            <div class="contact-container">
-                <div class="main-title">
-                    <h2>Contact <span>Me</span><span class="bg-text">Contact</span></h2>
-                </div>
-                <div class="contact-content-con">
-                    <div class="left-contact">
-                        <h4>More infos and where to find me</h4>
-                        <p>
-                            Contact me using these and I will respond as fast as possible.
-                        </p>
-                        <div class="contact-info">
-                            <div class="contact-item">
-                                <div class="icon">
-                                    <i class="fas fa-map-marker-alt"></i>
-                                    <span>Location</span>
-                                </div>
-                                <p>
-                                    Toulouse, FRANCE
-                                </p>
-                            </div>
-                            <div class="contact-item">
-                                <div class="icon">
-                                    <i class="fas fa-envelope"></i>
-                                    <span>Email</span>
-                                </div>
-                                <p>
-                                    <span> bernard.onesime@gmail.com</span>
-                                </p>
-                            </div>
-                            <div class="contact-item">
-                                <div class="icon">
-                                    <i class="fas fa-phone"></i>
-                                    <span>Mobile #1</span>
-                                </div>
-                                <p>
-                                    <span> +32 4 91 52 15 06</span>
-                                </p>
-                            </div>
-                            <div class="contact-item">
-                                <div class="icon">
-                                    <i class="fas fa-phone"></i>
-                                    <span>Mobile #2</span>
-                                </div>
-                                <p>
-                                    <span> +33 6 95 59 11 71</span>
-                                </p>
-                            </div>
-                            <div class="contact-item">
-                                <div class="icon">
-                                    <i class="fas fa-globe-africa"></i>
-                                    <span>Languages</span>
-                                </div>
-                                <p>
-                                    <span>: French, English</span>
-                                </p>
-                            </div>
-                        </div>
-                        <div class="contact-icons">
-                            <div class="contact-icon">
-                                <a href="https://twitter.com/emiseno" target="_blank">
-                                    <i class="fab fa-twitter"></i>
-                                </a>
-                                <a href="https://github.com/onbernard" target="_blank">
-                                    <i class="fab fa-github"></i>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="right-contact">
-                        <form action="" class="contact-form">
-                            <div class="input-control i-c-2">
-                                <input type="text" required placeholder="YOUR NAME">
-                                <input type="email" required placeholder="YOUR EMAIL">
-                            </div>
-                            <div class="input-control">
-                                <input type="text" required placeholder="ENTER SUBJECT">
-                            </div>
-                            <div class="input-control">
-                                <textarea name="" id="" cols="15" rows="8" placeholder="Message Here..."></textarea>
-                            </div>
-                            <div class="submit-btn">
-                                <a href="cv_OBERNARD.pdf" class="main-btn" download>
-                                    <span class="btn-text">Download CV</span>
-                                    <span class="btn-icon"><i class="fas fa-download"></i></span>
-                                </a>
-                            </div>
-                        </form>
-                    </div>
-                </div>
-            </div>
-        </section>
+        </div>
     </main>
-
     <div class="controls">
-        <div class="control active-btn" data-id="home">
+        <a href="#home" class="control active-btn" data-id="home">
             <i class="fas fa-home"></i>
-        </div>
-        <div class="control" data-id="about">
+            <span class="button-text">My portfolio</span>
+        </a>
+        <a href="#about" class="control" data-id="about">
             <i class="fas fa-user"></i>
-        </div>
-        <div class="control" data-id="portfolio">
-            <i class="fas fa-briefcase"></i>
-        </div>
-        <div class="control" data-id="blogs">
-            <i class="far fa-newspaper"></i>
-        </div>
-        <div class="control" data-id="contact">
+            <span class="button-text">About me</span>
+        </a>
+        <a href="#skill" class="control" data-id="skill">
+            <i class="fa-solid fa-toolbox"></i>
+            <span class="button-text">My skills</span>
+        </a>
+        <a href="#contact" class="control" data-id="contact">
             <i class="fas fa-envelope-open"></i>
-        </div>
+            <span class="button-text">Contact Infos</span>
+        </a>
+        <a id="cv" href="/cv_OBERNARD.pdf" target="_blank" class="control" data-id="cv">
+            <i class="fas fa-download"></i>
+            <span class="button-text">Download my CV</span>
+        </a>
     </div>
     <div class="theme-btn">
         <i class="fas fa-adjust"></i>
     </div>
-    <script src="app.js"></script>
+
 </body>
+<script src="app.js"></script>
 
 </html>
